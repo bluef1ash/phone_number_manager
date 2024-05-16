@@ -27,7 +27,7 @@
         <druid.version>1.2.15</druid.version>
         <tinypinyin.version>2.0.3.RELEASE</tinypinyin.version>
         <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
-        <hutool.version>5.8.10</hutool.version>
+        <hutool.version>5.8.21</hutool.version>
         <easyexcel.version>3.1.3</easyexcel.version>
     </properties>
     <repositories>
