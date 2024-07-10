@@ -7,6 +7,8 @@ import java.util.regex.Pattern;
 import org.springframework.data.redis.cache.RedisCache;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheWriter;
+import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
 
 import cn.hutool.core.math.Calculator;
 import cn.hutool.json.JSONObject;
@@ -25,8 +27,9 @@ public class RedisCacheManager extends org.springframework.data.redis.cache.Redi
         super(cacheWriter, defaultCacheConfiguration);
     }
 
+    @NonNull
     @Override
-    protected RedisCache createRedisCache(String name, RedisCacheConfiguration cacheConfig) {
+    protected RedisCache createRedisCache(String name, @Nullable RedisCacheConfiguration cacheConfig) {
         String jsonString = null;
         Matcher matcher = pattern.matcher(name);
         while (matcher.find()) {

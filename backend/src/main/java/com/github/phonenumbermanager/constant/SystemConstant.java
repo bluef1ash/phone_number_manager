@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
  * @author 廿二月的天
  */
 public final class SystemConstant {
+    public static final String DATABASE_URL_SUFFIX =
+        "?useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true";
     /**
      * 社区级机构名称正则表达式
      */

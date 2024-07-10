@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.6</version>
+        <version>3.3.0</version>
         <relativePath/>
     </parent>
     <groupId>com.github</groupId>
@@ -22,13 +22,14 @@
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <mybatis-plus-boot-starter.version>3.5.3.1</mybatis-plus-boot-starter.version>
-        <swagger.version>2.0.4</swagger.version>
-        <druid.version>1.2.16</druid.version>
+        <dynamic-datasource.version>4.3.1</dynamic-datasource.version>
+        <mybatis-plus-boot-starter.version>3.5.7</mybatis-plus-boot-starter.version>
+        <swagger.version>2.5.0</swagger.version>
+        <druid.version>1.2.23</druid.version>
         <tinypinyin.version>2.0.3.RELEASE</tinypinyin.version>
         <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
-        <hutool.version>5.8.18</hutool.version>
-        <easyexcel.version>3.3.1</easyexcel.version>
+        <hutool.version>5.8.29</hutool.version>
+        <easyexcel.version>3.3.4</easyexcel.version>
     </properties>
     <repositories>
         <repository>
@@ -79,17 +80,18 @@
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>${druid.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-undertow</artifactId>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>3.0.3</version>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>

@@ -86,7 +86,7 @@ public class UserAndPermissionController extends BaseController {
         String captchaCodeCacheKey =
             SystemConstant.CAPTCHA_ID_KEY + SystemConstant.REDIS_EXPLODE + systemUserLoginVo.getCaptchaId();
         String captchaCode = (String)redisUtil.get(captchaCodeCacheKey);
-        if (captchaCode == null || !captchaCode.equals(systemUserLoginVo.getCaptcha())) {
+        if (captchaCode == null || !captchaCode.equalsIgnoreCase(systemUserLoginVo.getCaptcha())) {
             redisUtil.delete(captchaCodeCacheKey);
             throw new LoginException("登录图形验证码输入错误！");
         }

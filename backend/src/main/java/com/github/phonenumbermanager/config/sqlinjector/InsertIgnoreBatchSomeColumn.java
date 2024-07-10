@@ -26,7 +26,7 @@ public class InsertIgnoreBatchSomeColumn extends AbstractMethod {
     @Override
     public MappedStatement injectMappedStatement(Class<?> mapperClass, Class<?> modelClass, TableInfo tableInfo) {
         List<TableFieldInfo> fieldList = tableInfo.getFieldList();
-        String insertSqlColumn = tableInfo.getKeyInsertSqlColumn(true, false)
+        String insertSqlColumn = tableInfo.getKeyInsertSqlColumn(true, null, false)
             + filterTableFieldInfo(fieldList, predicate, TableFieldInfo::getInsertSqlColumn, "");
         String columnScript = "(" + insertSqlColumn.substring(0, insertSqlColumn.length() - 1) + ")";
         String insertSqlProperty = tableInfo.getKeyInsertSqlProperty(true, "et.", false)

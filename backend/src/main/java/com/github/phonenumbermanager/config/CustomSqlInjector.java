@@ -2,6 +2,7 @@ package com.github.phonenumbermanager.config;
 
 import java.util.List;
 
+import org.apache.ibatis.session.Configuration;
 import org.springframework.stereotype.Component;
 
 import com.baomidou.mybatisplus.core.injector.AbstractMethod;
@@ -19,8 +20,8 @@ import com.github.phonenumbermanager.config.sqlinjector.InsertIgnoreBatchSomeCol
 @Component
 public class CustomSqlInjector extends DefaultSqlInjector {
     @Override
-    public List<AbstractMethod> getMethodList(Class<?> mapperClass, TableInfo tableInfo) {
-        List<AbstractMethod> methodList = super.getMethodList(mapperClass, tableInfo);
+    public List<AbstractMethod> getMethodList(Configuration configuration, Class<?> mapperClass, TableInfo tableInfo) {
+        List<AbstractMethod> methodList = super.getMethodList(configuration, mapperClass, tableInfo);
         methodList.add(new InsertBatchSomeColumn(tableFieldInfo -> !tableFieldInfo.isVersion()));
         methodList.add(new InsertIgnore());
         methodList.add(new InsertIgnoreBatchSomeColumn(tableFieldInfo -> !tableFieldInfo.isVersion()));

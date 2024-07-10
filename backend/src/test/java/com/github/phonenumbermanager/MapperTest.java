@@ -1,6 +1,9 @@
 package com.github.phonenumbermanager;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -10,7 +13,6 @@ import com.github.phonenumbermanager.entity.PhoneNumber;
 import com.github.phonenumbermanager.service.ConfigurationService;
 import com.github.phonenumbermanager.service.PhoneNumberService;
 
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -20,10 +22,11 @@ import lombok.extern.slf4j.Slf4j;
  */
 @SpringBootTest
 @Slf4j
-@AllArgsConstructor
 public class MapperTest {
-    private final ConfigurationService configurationService;
-    private final PhoneNumberService phoneNumberService;
+    @Autowired
+    private ConfigurationService configurationService;
+    @Autowired
+    private PhoneNumberService phoneNumberService;
 
     @Test
     public void testVersion() {
@@ -40,5 +43,11 @@ public class MapperTest {
         phoneNumber.setPhoneNumber("13012345678").setPhoneType(PhoneTypeEnum.MOBILE);
         phoneNumberService.saveIgnore(phoneNumber);
         log.debug(phoneNumber.toString());
+    }
+
+    @Test
+    public void testQueryList() {
+        List<Configuration> configurations = configurationService.list();
+        log.debug(configurations.toString());
     }
 }

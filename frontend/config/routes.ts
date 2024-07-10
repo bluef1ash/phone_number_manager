@@ -7,6 +7,7 @@ export default [
     menuRender: false,
     headerRender: false,
     menuHeaderRender: false,
+    footerRender: false,
   },
   {
     path: '/resident',
